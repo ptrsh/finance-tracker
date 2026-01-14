@@ -86,7 +86,7 @@ docker-compose up -d
 ### Проверка стиля кода
 Проверить, соответствует ли код стандартам:
 ```bash
-./gradlew spotlessCheck
+./gradlew spotlessCheck checkstyleMain
 ```
 Автоматически исправить форматирование:
 ```bash
