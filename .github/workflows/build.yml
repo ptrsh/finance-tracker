@@ -10,6 +10,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: finance_db
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - uses: actions/checkout@v4
     
@@ -22,12 +37,14 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
-    - name: Build with Gradle (Compile, Test, Checkstyle, Spotless)
+    - name: Build with Gradle
       run: ./gradlew build
-      
+
     - name: Publish Test Results
       uses: actions/upload-artifact@v4
       if: always()
       with:
         name: test-results
-        path: build/test-results/
+        path: |
+          build/reports/tests/
+          build/reports/checkstyle/
