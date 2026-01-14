@@ -1,8 +1,19 @@
 package com.example.financetracker.service;
 
-import com.example.financetracker.dto.*;
-import com.example.financetracker.entity.*;
-import com.example.financetracker.repository.*;
+import com.example.financetracker.dto.CategoryDto;
+import com.example.financetracker.dto.StatsResponse;
+import com.example.financetracker.dto.TransactionDto;
+import com.example.financetracker.dto.TransactionResponse;
+import com.example.financetracker.dto.TransferRequest;
+import com.example.financetracker.entity.Category;
+import com.example.financetracker.entity.Transaction;
+import com.example.financetracker.entity.TransactionType;
+import com.example.financetracker.entity.User;
+import com.example.financetracker.entity.Wallet;
+import com.example.financetracker.repository.CategoryRepository;
+import com.example.financetracker.repository.TransactionRepository;
+import com.example.financetracker.repository.UserRepository;
+import com.example.financetracker.repository.WalletRepository;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashMap;

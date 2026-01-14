@@ -1,6 +1,10 @@
 package com.example.financetracker.controller;
 
-import com.example.financetracker.dto.*;
+import com.example.financetracker.dto.CategoryDto;
+import com.example.financetracker.dto.StatsResponse;
+import com.example.financetracker.dto.TransactionDto;
+import com.example.financetracker.dto.TransactionResponse;
+import com.example.financetracker.dto.TransferRequest;
 import com.example.financetracker.entity.Category;
 import com.example.financetracker.service.FinanceService;
 import jakarta.validation.Valid;
@@ -9,7 +13,14 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/finance")
